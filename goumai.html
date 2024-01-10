@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelliTech 购买</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>NexTime Creations - IntelliTech</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="index.html">NexTime Creations</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Purchase</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header>
+    <h1>IntelliTech购买</h1>
+</header>
+
+<main>
+    <div class="product">
+        <img id="product-image" src="images/未来.jpg" alt="Product Model 1">
+        <div class="product-info">
+            <h2 id="product-name">IntelliTech - 未来</h2>
+            <p>在这飞速发展的时代，我们追逐的不仅仅是时间，更是一场未知的冒险。IntelliTech智能手表，是你踏上这奇妙旅程的不二之选！</p>
+            <p>价格: <span id="product-price">$1499</span></p>
+        </div>
+        <div id="model-buttons">
+            <button onclick="changeModel('未来')" class="selected">未来</button>
+            <button onclick="changeModel('霓虹')">霓虹</button>
+            <!-- 可以添加更多型号按钮 -->
+        </div>
+        <button onclick="buy()">购买</button>
+    </div>
+</main>
+
+<script>
+    function changeModel(model) {
+        // 移除所有型号按钮的 selected 类
+        let buttons = document.querySelectorAll('#model-buttons button');
+        buttons.forEach(function(button) {
+            button.classList.remove('selected');
+            button.style.color = '#4caf50'; // 将未选中按钮的字体颜色设置为默认颜色
+        });
+
+        // 根据型号更改商品图片、描述和价格等信息
+        if (model === '未来' || model === '霓虹') {
+            document.getElementById('product-image').src = `images/${model}.jpg`;
+            document.getElementById('product-price').innerText = (model === '未来') ? '$1499' : '$1099';
+
+            // 更新商品名称
+            document.getElementById('product-name').innerText = `IntelliTech - ${model}`;
+
+            // 添加 selected 类到当前点击的按钮
+            event.target.classList.add('selected');
+            event.target.style.color = '#fff'; // 将选中按钮的字体颜色设置为白色
+        } else {
+            alert('未知型号');
+        }
+    }
+
+    function buy() {
+        // 处理购买逻辑，可以弹出模态框、显示提示信息等
+        alert('购买成功！');
+    }
+</script>
+<footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; NexTime Creations  2024.1</p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
